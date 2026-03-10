@@ -1,3 +1,3 @@
 <?php
-echo "Web Radius Berhasil Jalan";
+header("Location: dashboard.php");
 ?>
