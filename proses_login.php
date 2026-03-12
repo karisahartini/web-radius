@@ -4,12 +4,18 @@ session_start();
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-/* contoh login manual (nanti bisa pakai database) */
-if ($username == "admin" && $password == "admin123") {
+/* CONTOH LOGIN SEDERHANA */
+if ($username === "admin" && $password === "admin") {
+
     $_SESSION['login'] = true;
     $_SESSION['username'] = $username;
 
     header("Location: dashboard.php");
+    exit;
+
 } else {
-    echo "<script>alert('Login gagal!');window.location='login.php';</script>";
+    echo "<script>
+        alert('Username atau Password salah!');
+        window.location='login.php';
+    </script>";
 }

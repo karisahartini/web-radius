@@ -1,51 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+/* BODY */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* BACKGROUND FOTO */
+    background: 
+        linear-gradient(
+            rgba(140, 0, 0, 0.65),
+            rgba(140, 0, 0, 0.65)
+        ),
+        url('bg-seamolec.jpeg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* LOGIN BOX */
 .login-box {
-    background: #fff;
-    padding: 30px;
-    width: 350px;
-    border-radius: 10px;
+    background: #ffffff;
+    padding: 32px;
+    width: 360px;
+    border-radius: 14px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
+/* LOGO */
 .logo {
     width: 120px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
+/* TITLE */
 .login-box h2 {
-    margin-bottom: 20px;
+    margin: 10px 0 22px;
+    font-size: 20px;
+    color: #2f2f2f;
 }
 
+/* INPUT & SELECT */
 .login-box input,
 .login-box select {
     width: 100%;
+    height: 42px;
     padding: 10px;
-    margin: 8px 0;
-}
-
-.remember {
-    display: block;
-    text-align: left;
+    margin-bottom: 14px;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
     font-size: 14px;
-    margin: 10px 0;
+    background-color: #f5f5f5;
+    color: #2f2f2f;
 }
 
+/* FOCUS */
+.login-box input:focus,
+.login-box select:focus {
+    outline: none;
+    border-color: #c62828;
+    background-color: #ffffff;
+}
+
+/* REMEMBER */
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #2f2f2f;
+    margin: 10px 0 20px;
+}
+
+.remember input {
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+/* BUTTON */
 button {
     width: 100%;
-    padding: 10px;
-    background: #2a6df4;
-    color: white;
+    height: 46px;
+    background: #c62828;
+    color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #a61b1b;
 }
