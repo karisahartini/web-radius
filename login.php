@@ -6,7 +6,7 @@ if(isset($_POST['login'])){
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-if($username=="admin" && $password=="12345"){
+if($username=="admin" && $password=="admin"){
 
 $_SESSION['login'] = true;
 

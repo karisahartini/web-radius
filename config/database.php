@@ -5,10 +5,10 @@ $user = "root";
 $pass = "";
 $db   = "radius";
 
-$conn = mysqli_connect($host,$user,$pass,$db);
+$conn = mysqli_connect($host, $user, $pass, $db);
 
 if(!$conn){
-    die("Database gagal koneksi");
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
 
 ?>
