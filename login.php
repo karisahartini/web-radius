@@ -1,48 +1,24 @@
-<?php
-session_start();
-
-if(isset($_POST['login'])){
-
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-if($username=="admin" && $password=="admin"){
-
-$_SESSION['login'] = true;
-
-header("Location: index.php?page=dashboard");
-exit();
-
-}else{
-$error = "Username atau Password salah!";
-}
-
-}
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<title>Login web Radius</title>
+    <meta charset="UTF-8">
+    <title>Admin Login daloRADIUS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h2>Login Page</h2>
+<div class="login-box">
+    <img src="seamolec.jpeg" class="logo" alt="SEAMOLEC">
+    <h2>Admin Login Page</h2>
 
-<?php if(isset($error)){ echo $error; } ?>
+    <form action="proses_login.php" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
 
-<form method="post">
 
-<input type="text" name="username" placeholder="Username" required>
-<br><br>
-
-<input type="password" name="password" placeholder="Password" required>
-<br><br>
-
-<button type="submit" name="login">Login</button>
-
-</form>
+        <button type="submit">Login</button>
+    </form>
+</div>
 
 </body>
 </html>
