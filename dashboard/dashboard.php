@@ -1,179 +1,157 @@
 <?php
-include __DIR__ . "/../config/database.php";
+session_start();
+if(!isset($_SESSION['login'])){
+    header("Location: login.php");
+    exit;
+}
+
+include "../config/database.php";
 
 /* total user */
+$user = mysqli_query($conn,"SELECT COUNT(*) as total FROM users");
+$dataUser = mysqli_fetch_assoc($user);
 
-$queryUser = mysqli_query($conn,"SELECT COUNT(*) AS total FROM users");
-$dataUser = mysqli_fetch_assoc($queryUser);
+/* user online */
+$online = mysqli_query($conn,"SELECT COUNT(*) as total FROM radacct WHERE acctstoptime IS NULL");
+$dataOnline = mysqli_fetch_assoc($online);
 
-$totalUser = $dataUser['total'];
+/* total NAS */
+$nas = mysqli_query($conn,"SELECT COUNT(*) as total FROM nas");
+$dataNas = mysqli_fetch_assoc($nas);
 
-/* contoh data */
-
-$userOnline = 5;
-$totalNAS = 2;
-$sessionAktif = 3;
-
+/* login hari ini */
+$login = mysqli_query($conn,"SELECT COUNT(*) as total FROM radacct WHERE DATE(acctstarttime)=CURDATE()");
+$dataLogin = mysqli_fetch_assoc($login);
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard RADIUS</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
-h2{
-color:#3498db;
+body{
+background:#e9f5ff;
 }
 
-.card-container{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
+.sidebar{
+width:220px;
+height:100vh;
+position:fixed;
+background:#0d6efd;
+color:white;
+padding:20px;
+}
+
+.sidebar a{
+color:white;
+display:block;
+margin:15px 0;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.2);
+padding:8px;
+border-radius:5px;
+}
+
+.content{
+margin-left:240px;
+padding:30px;
 }
 
 .card{
-background:#eaf6ff;
-padding:20px;
-width:220px;
-border-radius:8px;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-text-align:center;
-}
-
-.card h3{
-color:#2c3e50;
-}
-
-.card h1{
-color:#3498db;
-}
-
-.box{
-background:#eaf6ff;
-padding:20px;
-border-radius:8px;
-margin-top:20px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-background:white;
-}
-
-table th{
-background:#5dade2;
-color:white;
-padding:10px;
-}
-
-table td{
-padding:10px;
-border-bottom:1px solid #ddd;
-}
-
-table tr:hover{
-background:#f2f9ff;
+border:none;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 </style>
 
-<h2>Dashboard</h2>
+</head>
 
-<div class="card-container">
+<body>
+
+<div class="sidebar">
+<h4>RADIUS PANEL</h4>
+<hr>
+
+<a href="dashboard.php">Dashboard</a>
+<a href="users.php">User Management</a>
+<a href="#">NAS</a>
+<a href="#">Accounting</a>
+<a href="logout.php">Logout</a>
+
+</div>
+
+
+<div class="content">
+
+<h2 class="mb-4">Dashboard</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+<div class="card bg-primary text-white">
+<div class="card-body">
+<h5>Total User</h5>
+<h2><?php echo $dataUser['total']; ?></h2>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-3">
+<div class="card bg-success text-white">
+<div class="card-body">
+<h5>User Online</h5>
+<h2><?php echo $dataOnline['total']; ?></h2>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-3">
+<div class="card bg-warning text-white">
+<div class="card-body">
+<h5>Total NAS</h5>
+<h2><?php echo $dataNas['total']; ?></h2>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-3">
+<div class="card bg-info text-white">
+<div class="card-body">
+<h5>Login Hari Ini</h5>
+<h2><?php echo $dataLogin['total']; ?></h2>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<br><br>
 
 <div class="card">
-<h3>Total User</h3>
-<h1><?php echo $totalUser; ?></h1>
+<div class="card-header">
+Statistik Login
 </div>
 
-<div class="card">
-<h3>User Aktif</h3>
-<h1><?php echo $userOnline; ?></h1>
-</div>
-
-<div class="card">
-<h3>Total NAS</h3>
-<h1><?php echo $totalNAS; ?></h1>
-</div>
-
-<div class="card">
-<h3>Session Aktif</h3>
-<h1><?php echo $sessionAktif; ?></h1>
+<div class="card-body">
+<p>Statistik login user akan muncul disini.</p>
 </div>
 
 </div>
 
-<div class="box">
-
-<h3>Statistik Login Harian</h3>
-
-<table>
-
-<tr>
-<th>Tanggal</th>
-<th>Jumlah Login</th>
-</tr>
-
-<tr>
-<td>2026-03-10</td>
-<td>50</td>
-</tr>
-
-<tr>
-<td>2026-03-11</td>
-<td>65</td>
-</tr>
-
-<tr>
-<td>2026-03-12</td>
-<td>25</td>
-</tr>
-
-</table>
 
 </div>
 
-<div class="box">
-
-<h3>Grafik Traffic Upload & Download</h3>
-
-<canvas id="trafficChart"></canvas>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-
-const ctx = document.getElementById('trafficChart');
-
-new Chart(ctx,{
-
-type:'line',
-
-data:{
-labels:['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'],
-
-datasets:[
-
-{
-label:'Upload',
-data:[10,20,15,25,30,28,40],
-borderWidth:2
-},
-
-{
-label:'Download',
-data:[30,40,35,50,55,60,70],
-borderWidth:2
-}
-
-]
-
-},
-
-options:{
-responsive:true
-}
-
-});
-
-</script>
+</body>
+</html>

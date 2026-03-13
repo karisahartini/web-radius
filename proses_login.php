@@ -10,7 +10,7 @@ if ($username === "admin" && $password === "admin") {
     $_SESSION['login'] = true;
     $_SESSION['username'] = $username;
 
-    header("Location: dashboard.php");
+    header("Location: dashboard/dashboard.php");
     exit;
 
 } else {
