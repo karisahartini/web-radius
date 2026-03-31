@@ -1,11 +1,10 @@
 <?php
-session_start();
 if(!isset($_SESSION['login'])){
     header("Location: login.php");
     exit;
 }
 
-include "../config/database.php";
+include __DIR__ . '/../config/database.php';
 
 /* total user */
 $user = mysqli_query($conn,"SELECT COUNT(*) as total FROM users");
