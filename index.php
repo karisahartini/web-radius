@@ -78,16 +78,6 @@ Web Radius Admin
 
 <div class="container">
 
-<div class="sidebar">
-
-<a href="index.php?page=dashboard">Dashboard</a>
-<a href="users.php">Users</a>
-<a href="#">NAS</a>
-<a href="#">Reports</a>
-<a href="logout.php">Logout</a>
-
-</div>
-
 <div class="content">
 
 <?php
