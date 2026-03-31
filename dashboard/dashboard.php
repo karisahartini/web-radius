@@ -84,6 +84,8 @@ box-shadow:0 2px 10px rgba(0,0,0,0.1);
 <a href="users.php">User Management</a>
 <a href="#">NAS</a>
 <a href="#">Accounting</a>
+<a href="#">Active Session</a>
+<a href="#">Voucher</a>
 <a href="logout.php">Logout</a>
 
 </div>

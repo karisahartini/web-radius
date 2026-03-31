@@ -1,4 +1,12 @@
 <?php
 session_start();
+
+// hapus semua session
+$_SESSION = [];
+session_unset();
 session_destroy();
-header("Location: login.php");
+
+// redirect
+header("Location: /web-radius/login.php");
+exit;
+?>
