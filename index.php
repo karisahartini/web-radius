@@ -85,7 +85,11 @@ Web Radius Admin
 /* load halaman */
 
 if($page == "dashboard"){
-include "dashboard/dashboard.php";
+    include "dashboard/dashboard.php";
+}
+
+if($page == "users"){
+    include "dashboard/users.php";
 }
 
 ?>
