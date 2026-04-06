@@ -92,6 +92,26 @@ if($page == "users"){
     include "dashboard/users.php";
 }
 
+if($page == "nas"){
+    include "nas.php";
+}
+
+if($page == "Accounting"){
+    include "accounting.php";
+}
+
+if($page == "Acctive Session"){
+    include "acctive_session.php";
+}
+
+if($page == "Voucher"){
+    include "voucher.php";
+}
+
+if($page == "Laporan"){
+    include "laporan.php";
+}
+
 ?>
 
 </div>

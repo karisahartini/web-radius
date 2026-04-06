@@ -93,7 +93,6 @@ body {
     overflow-x: hidden;
 }
  
-/* ── SIDEBAR ── */
 .sidebar {
     width: 230px;
     min-height: 100vh;
@@ -193,7 +192,6 @@ body {
  
 .sidebar-footer a:hover { background: rgba(239,68,68,.1); }
  
-/* ── MAIN CONTENT ── */
 .main {
     margin-left: 230px;
     flex: 1;
@@ -208,17 +206,8 @@ body {
     margin-bottom: 36px;
 }
  
-.topbar-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text);
-}
- 
-.topbar-sub {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 2px;
-}
+.topbar-title { font-size: 22px; font-weight: 600; color: var(--text); }
+.topbar-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
  
 .badge-live {
     display: inline-flex;
@@ -246,7 +235,6 @@ body {
     50%{opacity:.4;transform:scale(.8)}
 }
  
-/* ── STAT CARDS ── */
 .stat-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -264,10 +252,7 @@ body {
     transition: transform .2s, border-color .2s;
 }
  
-.stat-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--c, var(--accent));
-}
+.stat-card:hover { transform: translateY(-3px); border-color: var(--c, var(--accent)); }
  
 .stat-card::before {
     content: '';
@@ -298,45 +283,15 @@ body {
     margin-bottom: 14px;
 }
  
-.stat-label {
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 6px;
-}
+.stat-label { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.stat-value { font-family: var(--font-mono); font-size: 34px; font-weight: 700; color: var(--text); line-height: 1; }
+.stat-sub { font-size: 12px; color: var(--muted); margin-top: 8px; }
  
-.stat-value {
-    font-family: var(--font-mono);
-    font-size: 34px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1;
-}
- 
-.stat-sub {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 8px;
-}
- 
-/* ── GRID ROW ── */
-.row-grid {
-    display: grid;
-    gap: 22px;
-    margin-bottom: 22px;
-}
- 
+.row-grid { display: grid; gap: 22px; margin-bottom: 22px; }
 .row-grid.cols-6-4 { grid-template-columns: 1.5fr 1fr; }
 .row-grid.cols-1 { grid-template-columns: 1fr; }
  
-/* ── CARD ── */
-.card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 14px;
-    overflow: hidden;
-}
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; }
  
 .card-header {
     padding: 18px 22px;
@@ -346,15 +301,7 @@ body {
     justify-content: space-between;
 }
  
-.card-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
- 
+.card-title { font-size: 14px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; }
 .card-title i { color: var(--accent); }
  
 .card-badge {
@@ -368,19 +315,9 @@ body {
 }
  
 .card-body { padding: 22px; }
+.chart-wrap { position: relative; height: 220px; }
  
-/* ── CHART ── */
-.chart-wrap {
-    position: relative;
-    height: 220px;
-}
- 
-/* ── TABLE ── */
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-}
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
  
 .data-table th {
     font-family: var(--font-mono);
@@ -393,72 +330,33 @@ body {
     border-bottom: 1px solid var(--card-border);
 }
  
-.data-table td {
-    padding: 11px 12px;
-    border-bottom: 1px solid rgba(30,45,74,.5);
-    color: var(--text);
-    vertical-align: middle;
-}
- 
+.data-table td { padding: 11px 12px; border-bottom: 1px solid rgba(30,45,74,.5); color: var(--text); vertical-align: middle; }
 .data-table tr:last-child td { border-bottom: none; }
- 
 .data-table tr:hover td { background: rgba(59,130,246,.04); }
  
-.user-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-}
+.user-chip { display: inline-flex; align-items: center; gap: 7px; }
  
 .user-avatar {
     width: 28px; height: 28px;
     border-radius: 7px;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    color: white;
-    font-family: var(--font-mono);
-    flex-shrink: 0;
+    font-size: 11px; font-weight: 700; color: white;
+    font-family: var(--font-mono); flex-shrink: 0;
 }
  
-.tag {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-weight: 700;
-}
- 
+.tag { display: inline-block; font-family: var(--font-mono); font-size: 11px; padding: 2px 8px; border-radius: 5px; font-weight: 700; }
 .tag-green { background: rgba(16,185,129,.12); color: var(--accent3); border: 1px solid rgba(16,185,129,.2); }
 .tag-blue  { background: rgba(59,130,246,.12);  color: var(--accent);  border: 1px solid rgba(59,130,246,.2); }
 .tag-amber { background: rgba(245,158,11,.12); color: var(--accent4); border: 1px solid rgba(245,158,11,.2); }
  
-/* ── SESSION CARD ── */
-.session-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11px 0;
-    border-bottom: 1px solid rgba(30,45,74,.5);
-}
- 
+.session-item { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(30,45,74,.5); }
 .session-item:last-child { border-bottom: none; }
- 
-.session-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent3);
-    flex-shrink: 0;
-    animation: pulse 2s infinite;
-}
- 
+.session-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); flex-shrink: 0; animation: pulse 2s infinite; }
 .session-user { font-size: 13px; font-weight: 500; flex: 1; }
 .session-ip   { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 .session-dur  { font-family: var(--font-mono); font-size: 12px; color: var(--accent2); }
  
-/* ── RESPONSIVE ── */
 @media(max-width:1100px){
     .stat-grid{ grid-template-columns: repeat(2,1fr); }
     .row-grid.cols-6-4{ grid-template-columns: 1fr; }
@@ -473,7 +371,6 @@ body {
 </head>
 <body>
  
-<!-- ── SIDEBAR ── -->
 <aside class="sidebar">
     <div class="sidebar-brand">
         <div class="brand-label">System</div>
@@ -482,27 +379,27 @@ body {
  
     <nav class="sidebar-nav">
         <div class="nav-section">Menu Utama</div>
-        <a href="index.php?page=dashboard" class="active">
+        <a href="/web-radius/index.php?page=dashboard" class="<?= $page=='dashboard'?'active':'' ?>">
             <i class="bi bi-grid-1x2-fill"></i> Dashboard
         </a>
-        <a href="dashboard/users.php">
+        <a href="/web-radius/index.php?page=users" class="<?= $page=='users'?'active':'' ?>">
             <i class="bi bi-people-fill"></i> User Management
         </a>
-        <a href="#">
+        <a href="/web-radius/index.php?page=nas" class="<?= $page=='nas'?'active':'' ?>">
             <i class="bi bi-hdd-network-fill"></i> NAS
         </a>
-        <a href="#">
+        <a href="/web-radius/index.php?page=accounting" class="<?= $page=='accounting'?'active':'' ?>">
             <i class="bi bi-journal-text"></i> Accounting
         </a>
  
         <div class="nav-section">Monitoring</div>
-        <a href="#">
+        <a href="/web-radius/index.php?page=active_session" class="<?= $page=='active_session'?'active':'' ?>">
             <i class="bi bi-activity"></i> Active Session
         </a>
-        <a href="#">
+        <a href="/web-radius/index.php?page=voucher" class="<?= $page=='voucher'?'active':'' ?>">
             <i class="bi bi-ticket-perforated-fill"></i> Voucher
         </a>
-        <a href="#">
+        <a href="/web-radius/index.php?page=laporan" class="<?= $page=='laporan'?'active':'' ?>">
             <i class="bi bi-bar-chart-fill"></i> Laporan
         </a>
     </nav>
@@ -514,10 +411,8 @@ body {
     </div>
 </aside>
  
-<!-- ── MAIN ── -->
 <main class="main">
  
-    <!-- Topbar -->
     <div class="topbar">
         <div>
             <div class="topbar-title">Dashboard</div>
@@ -526,43 +421,34 @@ body {
         <div class="badge-live">Live Monitor</div>
     </div>
  
-    <!-- Stat Cards -->
     <div class="stat-grid">
- 
         <div class="stat-card" style="--c:#3b82f6">
             <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
             <div class="stat-label">Total User</div>
             <div class="stat-value"><?= $dataUser['total'] ?></div>
             <div class="stat-sub">Terdaftar di sistem</div>
         </div>
- 
         <div class="stat-card" style="--c:#10b981">
             <div class="stat-icon"><i class="bi bi-wifi"></i></div>
             <div class="stat-label">User Online</div>
             <div class="stat-value"><?= $dataOnline['total'] ?></div>
             <div class="stat-sub">Sesi aktif saat ini</div>
         </div>
- 
         <div class="stat-card" style="--c:#f59e0b">
             <div class="stat-icon"><i class="bi bi-hdd-network"></i></div>
             <div class="stat-label">Total NAS</div>
             <div class="stat-value"><?= $dataNas['total'] ?></div>
             <div class="stat-sub">Perangkat terdaftar</div>
         </div>
- 
         <div class="stat-card" style="--c:#06b6d4">
             <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
             <div class="stat-label">Login Hari Ini</div>
             <div class="stat-value"><?= $dataLogin['total'] ?></div>
             <div class="stat-sub">Sesi dibuka hari ini</div>
         </div>
- 
     </div>
  
-    <!-- Chart & Active Sessions -->
     <div class="row-grid cols-6-4">
- 
-        <!-- Chart Login 7 Hari -->
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
@@ -578,7 +464,6 @@ body {
             </div>
         </div>
  
-        <!-- Sesi Aktif -->
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
@@ -613,10 +498,8 @@ body {
                 <?php endif; ?>
             </div>
         </div>
- 
     </div>
  
-    <!-- Top Users Table -->
     <div class="row-grid cols-1">
         <div class="card">
             <div class="card-header">
@@ -673,7 +556,6 @@ body {
 </main>
  
 <script>
-// Chart Data dari PHP
 const labels = <?= json_encode($statLabels) ?>;
 const data   = <?= json_encode($statData) ?>;
  
