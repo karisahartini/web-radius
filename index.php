@@ -8,7 +8,7 @@ if(!isset($_SESSION['login'])){
 }
 
 /* menentukan halaman */
-$page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
+$page = isset($_GET['page']) ? strtolower($_GET['page']) : 'dashboard';
 ?>
 
 <!DOCTYPE html>
@@ -21,16 +21,17 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 body{
 margin:0;
 font-family:Arial;
-background:#f5f9ff;
+background:#0f1e2d;
 }
 
 /* navbar */
 
 .navbar{
-background:#3498db;
+background:#1a2a3a;
 color:white;
 padding:15px;
 font-size:20px;
+border-bottom:1px solid #2a3f55;
 }
 
 /* layout */
@@ -43,20 +44,29 @@ display:flex;
 
 .sidebar{
 width:200px;
-background:#eaf6ff;
-height:100vh;
+background:#1a2a3a;
+min-height:100vh;
 padding-top:20px;
+border-right:1px solid #2a3f55;
+flex-shrink:0;
 }
 
 .sidebar a{
 display:block;
 padding:12px 20px;
-color:#2c3e50;
+color:#7f8ea3;
 text-decoration:none;
 }
 
 .sidebar a:hover{
-background:#d6ecff;
+background:#2a3f55;
+color:white;
+}
+
+.sidebar a.active{
+background:#2a3f55;
+color:#3498db;
+border-left:3px solid #3498db;
 }
 
 /* content */
@@ -64,6 +74,8 @@ background:#d6ecff;
 .content{
 flex:1;
 padding:20px;
+background:#0f1e2d;
+min-height:100vh;
 }
 
 </style>
@@ -77,6 +89,7 @@ Web Radius Admin
 </div>
 
 <div class="container">
+
 
 <div class="content">
 
@@ -96,19 +109,19 @@ if($page == "nas"){
     include "nas.php";
 }
 
-if($page == "Accounting"){
+if($page == "accounting"){
     include "accounting.php";
 }
 
-if($page == "Acctive Session"){
+if($page == "acctive session"){
     include "acctive_session.php";
 }
 
-if($page == "Voucher"){
+if($page == "voucher"){
     include "voucher.php";
 }
 
-if($page == "Laporan"){
+if($page == "laporan"){
     include "laporan.php";
 }
 
