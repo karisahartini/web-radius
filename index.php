@@ -113,8 +113,8 @@ if($page == "accounting"){
     include "accounting.php";
 }
 
-if($page == "acctive session"){
-    include "acctive_session.php";
+if($page == "active_session"){
+    include "active_session.php";
 }
 
 if($page == "voucher"){
